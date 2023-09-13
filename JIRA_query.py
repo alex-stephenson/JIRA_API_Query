@@ -13,7 +13,7 @@ import keyring
 
 # Specify a server key. It should be your
 # domain name link. yourdomainname.atlassian.net
-jiraOptions = {'server': "https://ovearup.atlassian.net"}
+jiraOptions = {'server': ""} # input your JIRA site here
 
 
 
@@ -23,7 +23,7 @@ jiraOptions = {'server': "https://ovearup.atlassian.net"}
 # emailID = your emailID
 # token = token you receive after registration
 jira = JIRA(options=jiraOptions, basic_auth=(
-	"alex.stephenson@arup.com", keyring.get_password('JIRA', 'alex.stephenson@arup.com')))
+	"alex.stephenson@****.com", keyring.get_password('JIRA', 'alex.stephenson@****.com')))
 
 
 ### Query to return all tickets
