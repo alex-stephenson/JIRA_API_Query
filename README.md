@@ -1,1 +1,1 @@
-# JIRA_API_Query
+# Accessing JIRA data via the API
