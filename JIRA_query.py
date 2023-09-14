@@ -4,29 +4,36 @@ Created on Fri Jun  9 12:57:32 2023
 
 @author: Alex.Stephenson
 """
-"Break"
 
 # import the installed Jira library
 from jira import JIRA
 import pandas as pd
-import keyring
 
 # Specify a server key. It should be your
 # domain name link. yourdomainname.atlassian.net
-jiraOptions = {'server': ""} # input your JIRA site here
+jiraOptions = {'server': "https://YOUR_DOMAIN.atlassian.net"}
 
 
 
 # Get a JIRA client instance, pass,
 # Authentication parameters
 # and the Server name.
-# emailID = your emailID
-# token = token you receive after registration
-jira = JIRA(options=jiraOptions, basic_auth=(
-	"alex.stephenson@****.com", keyring.get_password('JIRA', 'alex.stephenson@****.com')))
+emailID = #your emailID
+token = #token you receive after registration
+jira = JIRA(options=jiraOptions, basic_auth=(emailID, token)
+
+## create variable for correct custom field
 
 
-### Query to return all tickets
+custom_field_id = "customfield_XXXXX[0]" ### INSERT CUSTOMFIELD NUMBER HERE E.G. CUSTOMFIELD_10050[0]
+
+
+sprint_str = "issue.fields.f" + custom_field_id + ".name"
+state_str =  "issue.fields.f" + custom_field_id + ".state"
+start_date_str = "issue.fields.f" + custom_field_id + ".startDate"
+end_date_str = "issue.fields.f" + custom_field_id + ".endDate"
+
+
 
 all_tickets = jira.search_issues('project = "DG Programme" AND sprint is not empty',  maxResults=False, expand='changelog')
 
@@ -39,10 +46,10 @@ for issue in all_tickets:
     assignee = None
     if hasattr(issue.fields.assignee, 'displayName'):
         assignee = issue.fields.assignee.displayName
-    sprint = issue.fields.customfield_10019[0].name
-    state =  issue.fields.customfield_10019[0].state
-    start_date = issue.fields.customfield_10019[0].startDate
-    end_date = issue.fields.customfield_10019[0].endDate
+    sprint = sprint_str
+    state = state_str
+    start_date = start_date_str
+    end_date = end_date_str
     try:
         epic = issue.fields.parent.fields.summary
     except:
@@ -66,10 +73,10 @@ for issue in open_sprints:
     assignee = None
     if hasattr(issue.fields.assignee, 'displayName'):
         assignee = issue.fields.assignee.displayName
-    sprint = issue.fields.customfield_10019[0].name
-    state =  issue.fields.customfield_10019[0].state
-    start_date = issue.fields.customfield_10019[0].startDate
-    end_date = issue.fields.customfield_10019[0].endDate     
+    sprint = sprint_str
+    state = state_str
+    start_date = start_date_str
+    end_date = end_date_str
     try:
         epic = issue.fields.parent.fields.summary
     except:
@@ -92,7 +99,7 @@ for issue in backlog_items:
     if hasattr(issue.fields.assignee, 'displayName'):
         assignee = issue.fields.assignee.displayName
     try:
-        sprint = issue.fields.customfield_10019[0].name
+        sprint = sprint = sprint_str
     except:
         sprint = None        
     try:
