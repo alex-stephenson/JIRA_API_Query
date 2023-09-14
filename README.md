@@ -14,6 +14,18 @@ Clone this repo to your machine. There are lots of ways to do this: https://docs
 
 ## Step 3
 
-This is where it gets a bit hacky. The data returned through the `search_issues` function is very  unstructured. To make it more complicated, the name of variables within the data depend on your specific corporate instance of JIRA. I.e. one person's 'customfield_10450' is different to another person's. 
+This is where it gets a bit hacky. The data returned through the `search_issues` function is very  unstructured. To make it more complicated, the name of variables within the data depend on your specific corporate instance of JIRA. I.e. one person's `'customfield_10450'` is different to another person's. 
 
 We are going to extract all the information about tickets in the JIRA board and then find the data we're interested in for these tickets, like `sprint`, `epic`, `start_date`, `end_date`.
+
+### Step 3.1 - identify what the 'customfield' number is in your jira instance. 
+
+1. Go to your JIRA board
+2. Click on the search bar and hit enter
+3. Change the view type to list (shortcut type 't')
+4. Click columns and add the column 'sprint'
+5. Click sprint to order by sprint
+6. The query at the top should now show have changed, to show something like ORDER BY cf[XXXX]. The number here is your custom field
+
+3.2 
+
