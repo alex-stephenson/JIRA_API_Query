@@ -27,5 +27,8 @@ We are going to extract all the information about tickets in the JIRA board and 
 5. Click sprint to order by sprint
 6. The query at the top should now show have changed, to show something like ORDER BY cf[XXXX]. The number here is your custom field
 
-3.2 
+### Step 3.2 - Update code
+
+1. Update line 28 in the  `JIRA_query.py` file
+   
 
