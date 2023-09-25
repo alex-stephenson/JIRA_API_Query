@@ -29,6 +29,13 @@ We are going to extract all the information about tickets in the JIRA board and 
 
 ### Step 3.2 - Update code
 
-1. Update line 28 in the  `JIRA_query.py` file
-   
+1. Update line 28 in the  `JIRA_query.py` file.  Your code should now read like:
+   `custom_field_id = "customfield_10029[0]"`
+2. The code does not contain a method to export the data. Include your own preferred option.
+
+The code outputs 3 different dataframes:
+1. All tickets
+2. All tickets from the current sprint
+3. Tickets from your backlog
+
 
