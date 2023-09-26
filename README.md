@@ -35,6 +35,9 @@ We are going to extract all the information about tickets in the JIRA board and 
 5. Click sprint to order by sprint
 6. The JQL query at the top should now show have changed, to show something like ORDER BY cf[XXXX]. The number here is your custom field
 
+![image](https://github.com/alex-stephenson/JIRA_API_Query/assets/49374679/fcb09363-5732-4d29-9525-3b25701e5c1b)
+
+
 ### Step 3.3 - Update code with Customfield number
 
 1. Update line 29 in the  `JIRA_query.py` file.  Your code should now read like:
