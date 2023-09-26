@@ -29,7 +29,7 @@ We are going to extract all the information about tickets in the JIRA board and 
 
 ### Step 3.2 - Update code
 
-1. Update line 31 in the  `JIRA_query.py` file.  Your code should now read like:
+1. Update line 29 in the  `JIRA_query.py` file.  Your code should now read like:
    `customfield_number = "12529"`
 2. The code does not contain a method to export the data. Include your own preferred option.
 
