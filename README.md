@@ -38,4 +38,17 @@ The code outputs 3 different dataframes:
 2. All tickets from the current sprint
 3. Tickets from your backlog
 
+The remainder of the code cleans the output and calculates which sprint a ticket was comppleted in. 
+
+## Step 4 (Optional)
+
+The output can be used to produce weekly reports based on your JIRA data. For example, you could create a view of your open sprint data:
+
+![Active Sprint](https://github.com/alex-stephenson/JIRA_API_Query/assets/49374679/44a7afec-2394-4844-a5ed-19dd6517e0b7)
+
+
+
+You could also produce a view that allows users to see previous tickets, either filtering by date range or by sprint. 
+![past sprint](https://github.com/alex-stephenson/JIRA_API_Query/assets/49374679/a508318b-2a57-4e1d-b08c-8fbf752a202c)
+
 
