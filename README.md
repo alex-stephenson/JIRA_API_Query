@@ -43,7 +43,6 @@ We are going to extract all the information about tickets in the JIRA board and 
 1. Update line 29 in the  `JIRA_query.py` file.  Your code should now read like:
    `customfield_number = "12529"`
    We are doing this so when we query the JIRA data it returns information specific to your unique server details. 
-2. The code does not contain a method to export the data. Include your own preferred option.
 
 When run, the code outputs 3 different dataframes:
 1. All tickets
