@@ -22,9 +22,9 @@ We are going to extract all the information about tickets in the JIRA board and 
 
 ### Step 3.1 
 
-1. In line 14 include the name of your JIRA url, e.g.    `https://COMPANYNAME.atlassian.net`
-2. In line 21 and 22 put your email, and the API token we extracted in Step 1.
-3. Input your API token
+1.Pip install the `JIRA` package
+2. In line 14 include the name of your JIRA url, e.g.    `https://COMPANYNAME.atlassian.net`
+3. In line 21 and 22 put your email, and the API token we extracted in Step 1.
 
 ### Step 3.2 - identify what the 'customfield' number is in your jira instance. 
 
