@@ -24,16 +24,7 @@ jira = JIRA(options=jiraOptions, basic_auth=(emailID, token)
 
 ## create variable for correct custom field
 
-
-custom_field_id = "customfield_XXXXX[0]" ### INSERT CUSTOMFIELD NUMBER HERE E.G. CUSTOMFIELD_10050[0]
-
-
-sprint_str = "issue.fields.f" + custom_field_id + ".name"
-state_str =  "issue.fields.f" + custom_field_id + ".state"
-start_date_str = "issue.fields.f" + custom_field_id + ".startDate"
-end_date_str = "issue.fields.f" + custom_field_id + ".endDate"
-
-
+customfield_number = "XXXXX"  ### INSERT CUSTOMFIELD NUMBER HERE E.G. CUSTOMFIELD_10019
 
 all_tickets = jira.search_issues('project = "DG Programme" AND sprint is not empty',  maxResults=False, expand='changelog')
 
@@ -46,10 +37,10 @@ for issue in all_tickets:
     assignee = None
     if hasattr(issue.fields.assignee, 'displayName'):
         assignee = issue.fields.assignee.displayName
-    sprint = sprint_str
-    state = state_str
-    start_date = start_date_str
-    end_date = end_date_str
+    sprint = eval(f"issue.fields.customfield_{customfield_number}[0].name")
+    state = eval(f"issue.fields.customfield_{customfield_number}[0].state")
+    start_date = eval(f"issue.fields.customfield_{customfield_number}[0].startDate")
+    end_date = eval(f"issue.fields.customfield_{customfield_number}[0].endDate")
     try:
         epic = issue.fields.parent.fields.summary
     except:
@@ -73,10 +64,10 @@ for issue in open_sprints:
     assignee = None
     if hasattr(issue.fields.assignee, 'displayName'):
         assignee = issue.fields.assignee.displayName
-    sprint = sprint_str
-    state = state_str
-    start_date = start_date_str
-    end_date = end_date_str
+    sprint = eval(f"issue.fields.customfield_{customfield_number}[0].name")
+    state = eval(f"issue.fields.customfield_{customfield_number}[0].state")
+    start_date = eval(f"issue.fields.customfield_{customfield_number}[0].startDate")
+    end_date = eval(f"issue.fields.customfield_{customfield_number}[0].endDate")
     try:
         epic = issue.fields.parent.fields.summary
     except:
@@ -99,7 +90,7 @@ for issue in backlog_items:
     if hasattr(issue.fields.assignee, 'displayName'):
         assignee = issue.fields.assignee.displayName
     try:
-        sprint = sprint = sprint_str
+        sprint = eval(f"issue.fields.customfield_{customfield_number}[0].name")
     except:
         sprint = None        
     try:
@@ -167,4 +158,6 @@ all_tickets_df['Closing Sprint'] = sprint_closed
 ### adding column to tell if ticket is in the current active sprint
 
 all_tickets_df['In Active Sprint?'] = all_tickets_df['Key'].isin(open_sprint_df['Key'])
+
+
 
